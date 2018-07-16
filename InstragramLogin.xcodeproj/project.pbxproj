@@ -33,6 +33,7 @@
 		C39E5E6220ECD8440032CCC2 /* photosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39E5E6120ECD8440032CCC2 /* photosCell.swift */; };
 		C39E5E6420ECE9A00032CCC2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39E5E6320ECE9A00032CCC2 /* File.swift */; };
 		C3B481B220EDFFE90021F32A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B481B120EDFFE90021F32A /* Foundation.framework */; };
+		C3BA7A4D20F762F600DB5EC9 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA7A4C20F762F600DB5EC9 /* Defaults.swift */; };
 		C3F525EA20F48CB600E3E554 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F525E920F48CB600E3E554 /* NVActivityIndicatorView.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		C39E5E6120ECD8440032CCC2 /* photosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photosCell.swift; sourceTree = "<group>"; };
 		C39E5E6320ECE9A00032CCC2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C3B481B120EDFFE90021F32A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C3BA7A4C20F762F600DB5EC9 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		C3F525E920F48CB600E3E554 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDAB69946877A5E968A3BEE /* Pods-InstragramLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstragramLogin.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstragramLogin/Pods-InstragramLogin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 				C39E5E4F20ECD6F60032CCC2 /* AppDelegate.swift */,
 				C39E5E5120ECD6F60032CCC2 /* ViewController.swift */,
 				C39E5E6120ECD8440032CCC2 /* photosCell.swift */,
+				C3BA7A4C20F762F600DB5EC9 /* Defaults.swift */,
 				C304101E20EDFD2E008A7BE4 /* LoginViewController.swift */,
 				C39E5E6320ECE9A00032CCC2 /* File.swift */,
 				C39E5E5320ECD6F60032CCC2 /* Main.storyboard */,
@@ -296,6 +299,7 @@
 				C37881F820EFA0C20063F804 /* ILLikes.swift in Sources */,
 				C37881F120EFA0C20063F804 /* ILMeta.swift in Sources */,
 				C37881FA20EFA0C20063F804 /* ILFrom.swift in Sources */,
+				C3BA7A4D20F762F600DB5EC9 /* Defaults.swift in Sources */,
 				C37881F320EFA0C20063F804 /* ILStandardResolution.swift in Sources */,
 				C37881F520EFA0C20063F804 /* ILCaption.swift in Sources */,
 				C37881F620EFA0C20063F804 /* ILLowResolution.swift in Sources */,

@@ -11,32 +11,32 @@ import Alamofire
 import SwiftyJSON
 
 class LoginViewController: UIViewController,UIWebViewDelegate{
-
+    
     @IBOutlet weak var webView: UIWebView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+  
         webView.delegate = self
-
-        signInRequest()
         
-
+        signInRequest()
     }
-
+    
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
     }
- 
+    
     func signInRequest() {
         URLCache.shared.removeAllCachedResponses()
-
-            let url = String(format : "%@?client_id=%@&redirect_uri=%@&response_type=token&scope=%@&DEBUG=True",arguments: [INSTAGRAM_IDS.AUTHURL,INSTAGRAM_IDS.CLIENTID,INSTAGRAM_IDS.REDIRECTURI,INSTAGRAM_IDS.SCOPE])
-            let request  = URLRequest.init(url: URL.init(string: url)!)
-            webView.loadRequest(request)
+        
+        let url = String(format : "%@?client_id=%@&redirect_uri=%@&response_type=token&scope=%@&DEBUG=True",arguments: [INSTAGRAM_IDS.AUTHURL,INSTAGRAM_IDS.CLIENTID,INSTAGRAM_IDS.REDIRECTURI,INSTAGRAM_IDS.SCOPE])
+        let request  = URLRequest.init(url: URL.init(string: url)!)
+        webView.loadRequest(request)
     }
     
     func checkRequestForCallingBaseUrl(request : URLRequest)-> Bool   {
-
+        
         let URLSTRING = (request.url?.absoluteString)! as String
         if URLSTRING.hasPrefix(INSTAGRAM_IDS.REDIRECTURI) {
             let range : Range<String.Index> = URLSTRING.range(of: "#access_token")!
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController,UIWebViewDelegate{
             
             return false
         }
-
+        
         return  true
     }
     
@@ -54,14 +54,10 @@ class LoginViewController: UIViewController,UIWebViewDelegate{
         print(authToken)
         let url = String(format : "http://api.instagram.com/v1/users/self/media/recent/?access_token%@",authToken)
         
-        print(url)
-        
         let req : NSMutableURLRequest = NSMutableURLRequest(url:URL(string: url)!)
         req.httpMethod = "GET"
         req.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         req.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
-        
-        print(req)
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         session.dataTask(with: req as URLRequest) { (data ,respose,error) -> Void in
@@ -69,14 +65,22 @@ class LoginViewController: UIViewController,UIWebViewDelegate{
                 
                 let json = try? JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
                 
-                print(json!)
                 
                 let obj = ILListModel.init(object: json ?? [:])
-                    let controller = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-                    controller.data = obj
-                    self.navigationController?.pushViewController(controller, animated: true)
+
+                
+                DispatchQueue.main.async {
+                    
+                    let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+                    
+                    vc?.data = obj
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }
+                
+                
+                
             }
-        }.resume()
+            }.resume()
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {

@@ -22,7 +22,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Login Instagram"/>
                                 <connections>
-                                    <segue destination="f0o-A6-49i" kind="show" id="Dyd-Q7-jPP"/>
+                                    <action selector="push:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hee-VK-Adw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -42,13 +42,13 @@
         <!--Login View Controller-->
         <scene sceneID="dec-qn-wRM">
             <objects>
-                <viewController id="f0o-A6-49i" customClass="LoginViewController" customModule="InstragramLogin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="f0o-A6-49i" customClass="LoginViewController" customModule="InstragramLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="trq-ke-rv0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLj-El-Pda">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -78,13 +78,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USER NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sem-Ri-axU">
-                                <rect key="frame" x="140" y="40" width="95.5" height="20.5"/>
+                                <rect key="frame" x="140" y="40" width="96" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7r-ma-9Ic">
+                                <rect key="frame" x="142" y="607" width="91" height="30"/>
+                                <state key="normal" title="ADD IMAGES"/>
+                                <connections>
+                                    <action selector="AddImages:" destination="dvp-ic-hHm" eventType="touchUpInside" id="JZC-MV-QXg"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hWB-Fq-bRd">
-                                <rect key="frame" x="0.0" y="80.5" width="375" height="586.5"/>
+                                <rect key="frame" x="0.0" y="81" width="375" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p32-ZR-kYY">
                                     <size key="itemSize" width="116" height="109"/>
@@ -125,11 +132,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="F7r-ma-9Ic" firstAttribute="leading" secondItem="9Qp-gM-Lfu" secondAttribute="leading" constant="142" id="55M-nN-MXJ"/>
                             <constraint firstItem="sem-Ri-axU" firstAttribute="top" secondItem="9Qp-gM-Lfu" secondAttribute="top" constant="20" id="8Cv-bh-e8Q"/>
                             <constraint firstItem="sem-Ri-axU" firstAttribute="centerX" secondItem="9V6-Lx-H1a" secondAttribute="centerX" id="Kla-bc-gUJ"/>
-                            <constraint firstItem="hWB-Fq-bRd" firstAttribute="bottom" secondItem="9Qp-gM-Lfu" secondAttribute="bottom" id="aFP-3A-aAV"/>
+                            <constraint firstItem="9Qp-gM-Lfu" firstAttribute="trailing" secondItem="F7r-ma-9Ic" secondAttribute="trailing" constant="142" id="XqN-ce-7Zp"/>
                             <constraint firstItem="hWB-Fq-bRd" firstAttribute="top" secondItem="sem-Ri-axU" secondAttribute="bottom" constant="20" id="cIf-0J-RcM"/>
+                            <constraint firstItem="9Qp-gM-Lfu" firstAttribute="bottom" secondItem="F7r-ma-9Ic" secondAttribute="bottom" constant="30" id="mA5-PW-qLV"/>
                             <constraint firstItem="hWB-Fq-bRd" firstAttribute="leading" secondItem="9Qp-gM-Lfu" secondAttribute="leading" id="pek-EA-cwm"/>
+                            <constraint firstItem="F7r-ma-9Ic" firstAttribute="top" secondItem="hWB-Fq-bRd" secondAttribute="bottom" constant="30" id="uRh-HA-AYr"/>
                             <constraint firstItem="hWB-Fq-bRd" firstAttribute="trailing" secondItem="9Qp-gM-Lfu" secondAttribute="trailing" id="x3X-Qa-RSj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Qp-gM-Lfu"/>
